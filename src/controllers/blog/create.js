@@ -1,10 +1,18 @@
 const Blog = require("../../model/blog")
 const createBlog = async(req,res) =>{
+    console.log(req.body);
+    const {title, body  } = req.body;
+
+    if (!title || !body){
+        return res.status(400).send({
+            message:"Some field are missing"
+        })
+    }
   try{
 
                 const blogObj = new Blog({
-                    title:"test",
-                    body:"This is body",
+                    title: title,
+                    body: body,
                     slug:"This is slug",
             });
 
