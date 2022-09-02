@@ -1,9 +1,13 @@
 const Blog = require("../../model/blog")
 const updateBlog = async(req,res) =>{
+
+  console.log("update running")
   
   try{
         const {id} = req.params;
+        console.log(id);
         const {title,body} = req.body;
+        console.log(req.body);
 
         const blog = await Blog.findById(id);
 
@@ -11,6 +15,8 @@ const updateBlog = async(req,res) =>{
         blog.body = body || blog.body;
 
         const updatedBlog = await blog.save()
+
+        // res.redirect('/blogs')
 
         res.status(200).send({
             data : updatedBlog,

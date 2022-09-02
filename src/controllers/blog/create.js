@@ -19,7 +19,7 @@ const createBlog = async(req,res) =>{
             const blog = await blogObj.save();
 
             res.status(201).send({
-                data: blog
+                data: "Data Saved!!!"
             })
      } catch (e) {
         res.status(400).send({
