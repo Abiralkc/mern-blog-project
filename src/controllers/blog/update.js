@@ -1,7 +1,7 @@
 const Blog = require("../../model/blog")
 const updateBlog = async(req,res) =>{
 
-  console.log("update running")
+  console.log("update working")
   
   try{
         const {id} = req.params;

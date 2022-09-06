@@ -15,7 +15,9 @@ const deleteBlog = async(req,res) =>{
 
        
 
-        res.status(200).send();
+        res.status(200).send({
+            data : "Blog Deleted!!!"
+        });
      } catch (e) {
         res.status(400).send({
             data:e.message ? e.message : "Failed to get blogs",

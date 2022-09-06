@@ -13,16 +13,16 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../public/style.css"/>
-    <title>Edit Blog</title>
+    <title>Create a new Blog</title>
   </head>
   <body>
     
-    <h1 class="m-auto px-3 py-3"><center>Edit  Blog</center></h1>
+    <h1 class="m-auto px-3 py-3"><center>Edit an existing Blog</center></h1>
              
 
     <div class="form-control " >
-        <div class="card-content mt-4 mx-5 pd-4">
-        <form action="/api/v1/blogs/<%= blog.id %>" method="PATCH">
+      <div class="card-content mt-4 mx-5 pd-4"> <form action="/api/v1/blogs/<%= blog.id %>" method="Patch">
+       
         <div class="input-group mb-3">
           <label for="title" class="mx-2"> Enter the title of your Blog: </label> 
           <input

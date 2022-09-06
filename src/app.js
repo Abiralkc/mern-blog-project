@@ -4,6 +4,7 @@ const dbConnect = require('./service/db');
 const path = require("path");
 const bodyParser = require('body-parser');
 const Blog = require("../src/model/blog")
+const deleteBlog = require("./controllers/blog/delete");
 const app = express();
 
 const PORT = process.env.PORT || 8000;
@@ -11,7 +12,7 @@ const PORT = process.env.PORT || 8000;
 const staticPath = path.join(__dirname,"../public");
 
 
-app.use(express.static(staticPath));
+// app.use(express.static(staticPath));
 app.set("view engine","ejs");
 app.use(express.json());
 app.use(bodyParser.urlencoded())
@@ -37,6 +38,8 @@ app.get( "/edit/:id" ,async(req,res)=>{
   
   });
 
+app.get( "/delete/:id", deleteBlog);  
+
 app.get("/blogs", async(req,res)=>{
 
     const blogs = await Blog.find();
@@ -47,6 +50,8 @@ app.post("/createblogpost",(req,res)=>{
     console.log('HIT')
     console.log(req.body);
 })
+
+
 // app.get("/",(req,res)=>{
 //     res.render("index");
 // })
